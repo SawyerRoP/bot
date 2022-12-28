@@ -1,0 +1,43 @@
+package com.rdcall.bot;
+
+import com.linecorp.bot.client.LineMessagingClient;
+import com.linecorp.bot.model.PushMessage;
+import com.linecorp.bot.model.message.TextMessage;
+import com.linecorp.bot.model.response.BotApiResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.util.concurrent.ExecutionException;
+
+
+public class GetCall {
+    @GetMapping("/welcome")
+    public LocalDateTime hello() {
+        LocalDateTime now = LocalDateTime.now();
+        return  now.plusHours(7);
+    }
+    @PostMapping("/post")
+    public String handleTexMessagePush(@RequestBody String post) throws IOException {
+        //String decode = URLDecoder.decode(post, StandardCharsets.UTF_8.name());
+        String decode = "test";
+        final LineMessagingClient client = LineMessagingClient
+                .builder("BE2CfRAKK6YSXCkQW4GuXWtpyaTWN35poWC8Y8E7qQOepJ4+QiX9OZbGZC+6cz8QqXPDYq3LOlaLfEJ8k5WAQMS8nX7oyH0ZGixTg6GWxo/MV7k+U3mNJWzKHayl80db7DXFNMtqeUgRPl5WmpBKuQdB04t89/1O/w1cDnyilFU=")
+                .build();
+        final TextMessage textMessage = new TextMessage(decode);
+        final PushMessage pushMessage = new PushMessage("49f8b9061f9b3594685b9f4caa3833b7",textMessage);
+
+        final BotApiResponse botApiResponse;
+        try {
+            botApiResponse = client.pushMessage(pushMessage).get();
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+            return "error";
+        }
+
+        System.out.println(botApiResponse);
+        return post;
+    }
+}
