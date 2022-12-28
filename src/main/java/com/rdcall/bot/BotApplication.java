@@ -28,7 +28,8 @@ public class BotApplication {
 	@EventMapping
 	public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
 		log.info("event: " + event);
-		final String originalMessageText = event.getMessage().getText();
+		//final String originalMessageText = event.getMessage().getText();
+		final String originalMessageText = event.getSource().getSenderId();
 		return new TextMessage(originalMessageText);
 	}
 
