@@ -7,12 +7,12 @@ import com.linecorp.bot.model.response.BotApiResponse;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.concurrent.ExecutionException;
-
-
+@RestController
 public class GetCall {
     @GetMapping("/welcome")
     public LocalDateTime hello() {
