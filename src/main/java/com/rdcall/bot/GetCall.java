@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.concurrent.ExecutionException;
+
 @RestController
 public class GetCall {
     @GetMapping("/welcome")
@@ -21,8 +24,7 @@ public class GetCall {
     }
     @PostMapping("/post")
     public String handleTexMessagePush(@RequestBody String post) throws IOException {
-        //String decode = URLDecoder.decode(post, StandardCharsets.UTF_8.name());
-        String decode = "test";
+        String decode = URLDecoder.decode(post, StandardCharsets.UTF_8.name());
         final LineMessagingClient client = LineMessagingClient
                 .builder("BE2CfRAKK6YSXCkQW4GuXWtpyaTWN35poWC8Y8E7qQOepJ4+QiX9OZbGZC+6cz8QqXPDYq3LOlaLfEJ8k5WAQMS8nX7oyH0ZGixTg6GWxo/MV7k+U3mNJWzKHayl80db7DXFNMtqeUgRPl5WmpBKuQdB04t89/1O/w1cDnyilFU=")
                 .build();
