@@ -21,7 +21,7 @@ public class GetCall {
     @PostMapping("/post")
     public void handleTexMessagePush(@RequestBody String post) throws IOException {
         String decode = URLDecoder.decode(post, StandardCharsets.UTF_8.name());
-        Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type","application/x-www-form-urlencoded").header("Authorization","Bearer 22Zv29T1eE10NPibcQfDsXP7toTE1KPGnZ15K7AondU").ignoreContentType(true).timeout(6000).data("message",decode).post();
+        Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type","application/x-www-form-urlencoded").header("Authorization","Bearer ").ignoreContentType(true).timeout(6000).data("message",decode).post();
 
     }
 }
