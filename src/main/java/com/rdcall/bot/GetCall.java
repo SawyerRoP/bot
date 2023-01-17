@@ -40,10 +40,12 @@ public class GetCall {
         String decode = URLDecoder.decode(post, StandardCharsets.UTF_8.name());
 
         String[] send = decode.split(" ");
+        int countCompare = Integer.parseInt(send[1].substring(1));
 
+        if (countCompare > oldCall) {
 
+            Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer 22Zv29T1eE10NPibcQfDsXP7toTE1KPGnZ15K7AondU").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
 
-        Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type","application/x-www-form-urlencoded").header("Authorization","Bearer 22Zv29T1eE10NPibcQfDsXP7toTE1KPGnZ15K7AondU").ignoreContentType(true).timeout(6000).data("message",send[0]).post();
-
+        }
     }
 }
