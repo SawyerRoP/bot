@@ -36,7 +36,6 @@ public class GetCall {
         //System.out.println(call);
         int oldCall = Integer.parseInt(call.substring(0, call.length() - 1));
 
-
         String decode = URLDecoder.decode(post, StandardCharsets.UTF_8.name());
 
 
