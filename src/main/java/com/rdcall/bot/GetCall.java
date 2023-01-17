@@ -40,12 +40,12 @@ public class GetCall {
 
 
         String[] send = decode.split(" ");
+        System.out.println(send[0]);
 
 
 
 
-
-        Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type","application/x-www-form-urlencoded").header("Authorization","Bearer 22Zv29T1eE10NPibcQfDsXP7toTE1KPGnZ15K7AondU").ignoreContentType(true).timeout(6000).data("message",send[0]).post();
+        //Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type","application/x-www-form-urlencoded").header("Authorization","Bearer 22Zv29T1eE10NPibcQfDsXP7toTE1KPGnZ15K7AondU").ignoreContentType(true).timeout(6000).data("message",send[0]).post();
 
     }
 }
