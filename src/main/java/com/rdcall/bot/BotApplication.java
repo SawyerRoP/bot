@@ -1,5 +1,6 @@
 package com.rdcall.bot;
 
+import org.jsoup.Jsoup;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -29,6 +30,14 @@ public class BotApplication {
 	public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
 		log.info("event: " + event);
 		final String originalMessageText = event.getMessage().getText();
+		String recheck = event.getMessage().getText();
+		try {
+			Jsoup.connect("https://script.google.com/macros/s/AKfycbyA4aMWncFv-rD2zscnty1Qh6WL4qK2GwflKrudP4TtxgUxyT1M0srNBCIVc2dQFF2YOw/exec?").timeout(8000).data("action", "update").data("name", recheck).ignoreContentType(true).get();
+			log.info("[+]Repost call....");
+		}catch (Exception e) {
+			log.info("[+]Cannot recheck call.....");
+			System.exit(0);
+		}
 		//final String originalMessageText = event.getSource().getSenderId();
 		return new TextMessage(originalMessageText);
 	}
