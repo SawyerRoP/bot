@@ -17,7 +17,7 @@ public class ScheduledTasks {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(cron = "0 30 4 * * *")
+    @Scheduled(cron = "0 30 20 * * *")
     public void setZeroCallCount() throws IOException {
         String a = "0";
         Document c = Jsoup.connect("https://script.google.com/macros/s/AKfycbyA4aMWncFv-rD2zscnty1Qh6WL4qK2GwflKrudP4TtxgUxyT1M0srNBCIVc2dQFF2YOw/exec?").data("action","update").data("name",a).ignoreContentType(true).get();
