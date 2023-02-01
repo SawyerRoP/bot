@@ -41,18 +41,7 @@ public class GetCall {
     public void handleTexMessagePush(@RequestBody String post) throws IOException {
         //Document countCall = Jsoup.connect("https://script.google.com/macros/s/AKfycbyA4aMWncFv-rD2zscnty1Qh6WL4qK2GwflKrudP4TtxgUxyT1M0srNBCIVc2dQFF2YOw/exec?action=getCall").timeout(8000).ignoreContentType(true).get();
 
-        /*
-        Pattern pattern = Pattern.compile("\\d");
-        Matcher matcher = pattern.matcher(countCall.text());
-        String call = "";
-        while (matcher.find()) {
-            call += matcher.group();
 
-        }
-        //System.out.println(call);
-        int oldCall = Integer.parseInt(call.substring(0, call.length() - 1));
-
-         */
 
         List<Call> calls = callRespository.findAll();
 
