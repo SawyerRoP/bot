@@ -55,7 +55,7 @@ public class GetCall {
         if(check == 0) {
             jdbcTemplate.update("INSERT INTO rdcall (call) VALUES(?)",countCompare);
             log.info(countCompare);
-            Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer ").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
+            Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer 22Zv29T1eE10NPibcQfDsXP7toTE1KPGnZ15K7AondU").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
         }
 
             //Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer ").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
@@ -67,7 +67,7 @@ public class GetCall {
     public int compareStrings(List<Call>databaseStrings, String parameter) {
         for (Call s : databaseStrings) {
             if (Arrays.asList(s.getCall()).contains(parameter)) {
-                System.out.println("Duplicate " + s);
+                //System.out.println("Duplicate " + s);
                 return 1;
             }
         }

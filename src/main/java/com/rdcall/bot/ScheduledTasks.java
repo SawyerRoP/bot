@@ -23,6 +23,7 @@ public class ScheduledTasks {
     @Scheduled(cron = "0 30 20 * * *")
     public void setZeroCallCount() throws IOException {
         jdbcTemplate.update("DELETE FROM rdcall");
+        jdbcTemplate.update("ALTER SEQUENCE rdcall_id_seq RESTART WITH 1");
         log.info("[+}Set zero call record...");
     }
 }
