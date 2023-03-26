@@ -55,7 +55,7 @@ public class GetCall {
         if(check == 0) {
             jdbcTemplate.update("INSERT INTO rdcall (call) VALUES(?)",countCompare);
             log.info(countCompare);
-            Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer ").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
+            Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer L8X6RrMz9WV4UVuq8HOICVqwmRWDzOrILyJt2Gda9BO").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
         }
 
             //Jsoup.connect("https://notify-api.line.me/api/notify").header("Content-Type", "application/x-www-form-urlencoded").header("Authorization", "Bearer ").ignoreContentType(true).timeout(6000).data("message",decode.toString()).post();
